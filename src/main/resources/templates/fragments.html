@@ -27,5 +27,20 @@
         </div>
     </div>
 
+    <div th:fragment="results">
+
+        <h3 th:text="${jobs.size()} + ' Result(s)'"></h3>
+
+        <table class="job-listing" th:each ="job : ${jobs}">
+            <tr th:each ="xkey : ${job.keySet()}" >
+                <td th:text="${xkey}" ></td>
+                <!--value ="${field}"></td>-->
+                <td th:text="${job.get(xkey)}"></td>
+
+            </tr>
+
+        </table>
+
+    </div>
 </body>
 </html>

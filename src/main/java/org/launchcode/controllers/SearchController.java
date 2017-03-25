@@ -26,7 +26,7 @@ public class SearchController {
         return "search";
     }
 
-    // TODO #1 - Create handler to process search request and display results
+    // TODO #1 COMPLETED- Create handler to process search request and display results
 
     // mapped to results in search controller use search to overload
 

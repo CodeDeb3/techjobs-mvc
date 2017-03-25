@@ -36,22 +36,28 @@
 
     <hr />
 
-    <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <!-- TODO #2 - COMPLETED Loop over jobs map to display all job fields -->
+    <!--moved to fragments-->
 
-    <!--for value in search term  two nested groups  for each job loop keep value pairs-->
-    <!--<div th:if="${jobs}">-->
-    <!--tr is table row and td is table column placeholders-->
-    <div>
-        <table class="job-listing" th:each ="job : ${jobs}">
-            <tr th:each ="xkey : ${job.keySet()}" >
-                <td th:text="${xkey}" ></td>
-                <!--value ="${field}"></td>-->
-                <td th:text="${job.get(xkey)}"></td>
+    <div th:if="${jobs}">
 
-            </tr>
-
-        </table>
+        <div th:replace="fragments :: results"></div>
     </div>
+    <!--for value in search term  two nested groups  for each job loop keep value pairs-->
+    <!--tr is table row and td is table column placeholders-->
+    <!--<div>-->
+        <!--<h3 th:text="${jobs.size()} + ' Jobs'"></h3>-->
+
+        <!--<table class="job-listing" th:each ="job : ${jobs}">-->
+            <!--<tr th:each ="xkey : ${job.keySet()}" >-->
+                <!--<td th:text="${xkey}" ></td>-->
+                <!--&lt;!&ndash;value ="${field}"></td>&ndash;&gt;-->
+                <!--<td th:text="${job.get(xkey)}"></td>-->
+
+            <!--</tr>-->
+
+        <!--</table>-->
+    <!--</div>-->
 
 
 </div>
