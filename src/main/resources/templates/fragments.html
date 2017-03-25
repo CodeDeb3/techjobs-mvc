@@ -32,10 +32,15 @@
         <h3 th:text="${jobs.size()} + ' Result(s)'"></h3>
 
         <table class="job-listing" th:each ="job : ${jobs}">
-            <tr th:each ="xkey : ${job.keySet()}" >
-                <td th:text="${xkey}" ></td>
-                <!--value ="${field}"></td>-->
-                <td th:text="${job.get(xkey)}"></td>
+            <tr th:each ="key : ${job.keySet()}" >
+                <!--<td th:text="${xkey}" ></td>-->
+
+                <!--Bonus Mission capitalize field names (xkey) replace above commnd-->
+                <td th:text="${#strings.capitalizeWords(key)}"></td>
+                <!--Bonus hyperlink listing of all jobs-->
+                <!--<a th:href="@{/search/results(job=${job.get(key)})}"></a>-->
+                <td th:text="${job.get(key)}"></td>
+
 
             </tr>
 
