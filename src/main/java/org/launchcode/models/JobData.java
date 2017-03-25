@@ -29,6 +29,7 @@ public class JobData {
      * @param field The column to retrieve values from
      * @return List of all of the values of the given field
      */
+    // find all provides all data not string fields has not header rows DE
     public static ArrayList<String> findAll(String field) {
 
         // load data, if not already loaded
@@ -70,7 +71,8 @@ public class JobData {
      * @param value Value of teh field to search for
      * @return List of all jobs matching the criteria
      */
-    public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
+    public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column,
+                                                                          String value) {
 
         // load data, if not already loaded
         loadData();
@@ -138,7 +140,8 @@ public class JobData {
             CSVParser parser = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(reader);
             List<CSVRecord> records = parser.getRecords();
             Integer numberOfColumns = records.get(0).size();
-            String[] headers = parser.getHeaderMap().keySet().toArray(new String[numberOfColumns]);
+            String[] headers = parser.getHeaderMap().keySet().toArray(new
+                    String[numberOfColumns]);
 
             allJobs = new ArrayList<>();
 

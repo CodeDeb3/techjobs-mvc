@@ -18,6 +18,7 @@ public class ListController {
 
     static HashMap<String, String> columnChoices = new HashMap<>();
 
+// this is a constructor used to populate column choices with values DE
     public ListController () {
         columnChoices.put("core competency", "Skill");
         columnChoices.put("employer", "Employer");
@@ -56,8 +57,10 @@ public class ListController {
     public String listJobsByColumnAndValue(Model model,
             @RequestParam String column, @RequestParam String value) {
 
-        ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(column, value);
-        model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
+        ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(column,
+                value);
+        model.addAttribute("title", "Jobs with " + columnChoices.get(column) +
+                ": " + value);
         model.addAttribute("jobs", jobs);
 
         return "list-jobs";
