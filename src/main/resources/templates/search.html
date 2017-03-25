@@ -38,6 +38,22 @@
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
+    <!--for value in search term  two nested groups  for each job loop keep value pairs-->
+    <!--<div th:if="${jobs}">-->
+    <!--tr is table row and td is table column placeholders-->
+    <div>
+        <table class="job-listing" th:each ="job : ${jobs}">
+            <tr th:each ="xkey : ${job.keySet()}" >
+                <td th:text="${xkey}" ></td>
+                <!--value ="${field}"></td>-->
+                <td th:text="${job.get(xkey)}"></td>
+
+            </tr>
+
+        </table>
+    </div>
+
+
 </div>
 
 </body>
